@@ -1,4 +1,4 @@
-# Tugas Praktikum { Pertemuan ke 4 } <img src=https://1000logos.net/wp-content/uploads/2020/08/MySQL-Logo.jpg width="120px" >
+# Tugas Praktikum { Pertemuan ke 4 } <img src=https://logos-download.com/wp-content/uploads/2016/05/MySQL_logo_logotype.png width="120px" >
 
 
 |**Nama**|**NIM**|**Kelas**|**Matkul**|
