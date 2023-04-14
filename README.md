@@ -1,4 +1,5 @@
-# Tugas Praktikum { Pertemuan ke 4 } <img src=https://qph.fs.quoracdn.net/main-qimg-648763cc041459725b62108f4fdf5b91 width="110px" >
+# Tugas Praktikum { Pertemuan ke 4 } <img src=https://1000logos.net/wp-content/uploads/2020/08/MySQL-Logo.jpg width="120px" >
+
 
 |**Nama**|**NIM**|**Kelas**|**Matkul**|
 |----|---|-----|------|
@@ -6,7 +7,7 @@
 
 # Soal Latihan Praktikum
 
-**Data Model Mapping**
+## Data Model Mapping
 
 ```
 Mahasiswa (nim, nama, jenis_kelamin, tgl_lahir, jalan, kota, kodepos, no_hp, kd_ds)
@@ -27,7 +28,12 @@ KRSMahasiswa (nim, kd_mk, kd_ds, semester, nilai)
 **1. buat dulu script untuk table mahasiswa :**
 
 ```
-CREATE TABLE Mahasiswa (nim VARCHAR(10) PRIMARY KEY, nama VARCHAR(255) NOT NULL, jenis_kelamin ENUM('Laki-Laki', 'Perempuan'), tgl_lahir DATE,jalan VARCHAR(255) NOT NULL, kota VARCHAR(255) NOT NULL, kodepos VARCHAR(5) NOT NULL, no_hp VARCHAR(15) NOT NULL, kd_ds VARCHAR(10) NOT NULL, FOREIGN KEY (kd_ds) REFERENCES Dosen(kd_ds))
+CREATE TABLE Mahasiswa 
+(nim VARCHAR(10) PRIMARY KEY, nama VARCHAR(255) NOT NULL, jenis_kelamin ENUM('Laki-Laki', 'Perempuan'), 
+tgl_lahir DATE,jalan VARCHAR(255) NOT NULL, kota VARCHAR(255) NOT NULL, 
+kodepos VARCHAR(5) NOT NULL, 
+no_hp VARCHAR(15) NOT NULL, 
+kd_ds VARCHAR(10) NOT NULL, FOREIGN KEY (kd_ds) REFERENCES Dosen(kd_ds))
 ```
 
 ![gambar1](screenshot/ss1.png)
@@ -41,7 +47,9 @@ CREATE TABLE Mahasiswa (nim VARCHAR(10) PRIMARY KEY, nama VARCHAR(255) NOT NULL,
 
 **2. buat script untuk table dosen :**
 ```
-CREATE TABLE Dosen ( ->     kd_ds VARCHAR(10) PRIMARY KEY, ->     nama VARCHAR(255) NOT NULL -> );
+CREATE TABLE Dosen 
+( -> kd_ds VARCHAR(10) PRIMARY KEY, ->  
+   nama VARCHAR(255) NOT NULL -> );
 ```
 
 ![gambar3](screenshot/ss3.png)
@@ -54,7 +62,10 @@ CREATE TABLE Dosen ( ->     kd_ds VARCHAR(10) PRIMARY KEY, ->     nama VARCHAR(2
 
 **3. buat script untuk mata kuliah :**
 ```
-CREATE TABLE Matakuliah ( ->     kd_mk VARCHAR(10) PRIMARY KEY, ->     nama VARCHAR(255) NOT NULL, ->     sks INT NOT NULL -> );
+CREATE TABLE Matakuliah 
+( -> kd_mk VARCHAR(10) PRIMARY KEY, ->
+     nama VARCHAR(255) NOT NULL, -> 
+     sks INT NOT NULL -> );
 ```
 
 ![gambar5](screenshot/ss5.png)
@@ -67,7 +78,8 @@ CREATE TABLE Matakuliah ( ->     kd_mk VARCHAR(10) PRIMARY KEY, ->     nama VARC
 
 **4. Buat script untuk jadwal mengajar :**
 ```
-CREATE TABLE JadwalMengajar ( ->     kd_ds VARCHAR(10) NOT NULL, ->     kd_mk VARCHAR(10) NOT NULL, ->     hari ENUM('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu') NOT NULL, ->     jam TIME NOT NULL, ->     ruang VARCHAR(255) NOT NULL, ->     PRIMARY KEY (kd_ds, kd_mk, hari, jam), ->     FOREIGN KEY (kd_ds) REFERENCES Dosen(kd_ds), ->     FOREIGN KEY (kd_mk) REFERENCES Matakuliah(kd_mk) -> ); 
+CREATE TABLE JadwalMengajar 
+( ->     kd_ds VARCHAR(10) NOT NULL, ->     kd_mk VARCHAR(10) NOT NULL, ->     hari ENUM('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu') NOT NULL, ->     jam TIME NOT NULL, ->     ruang VARCHAR(255) NOT NULL, ->     PRIMARY KEY (kd_ds, kd_mk, hari, jam), ->     FOREIGN KEY (kd_ds) REFERENCES Dosen(kd_ds), ->     FOREIGN KEY (kd_mk) REFERENCES Matakuliah(kd_mk) -> ); 
 ```
 
 ![gambar7](screenshot/ss7.png)
@@ -80,7 +92,8 @@ CREATE TABLE JadwalMengajar ( ->     kd_ds VARCHAR(10) NOT NULL, ->     kd_mk VA
 
 **5. Buat script untuk KRSMahasiswa :**
 ```
-CREATE TABLE KRSMahasiswa ( ->     nim VARCHAR(10) NOT NULL, ->     kd_mk VARCHAR(10) NOT NULL, ->     kd_ds VARCHAR(10) NOT NULL, ->     semester VARCHAR(10) NOT NULL, ->     nilai FLOAT NOT NULL, ->     PRIMARY KEY (nim, kd_mk), ->     FOREIGN KEY (nim) REFERENCES Mahasiswa(nim), ->     FOREIGN KEY (kd_mk) REFERENCES Matakuliah(kd_mk), ->     FOREIGN KEY (kd_ds) REFERENCES Dosen(kd_ds) -> );
+CREATE TABLE KRSMahasiswa 
+( ->     nim VARCHAR(10) NOT NULL, ->     kd_mk VARCHAR(10) NOT NULL, ->     kd_ds VARCHAR(10) NOT NULL, ->     semester VARCHAR(10) NOT NULL, ->     nilai FLOAT NOT NULL, ->     PRIMARY KEY (nim, kd_mk), ->     FOREIGN KEY (nim) REFERENCES Mahasiswa(nim), ->     FOREIGN KEY (kd_mk) REFERENCES Matakuliah(kd_mk), ->     FOREIGN KEY (kd_ds) REFERENCES Dosen(kd_ds) -> );
 ```
 
 ![gamabr9](screenshot/ss9.png)
@@ -95,4 +108,4 @@ CREATE TABLE KRSMahasiswa ( ->     nim VARCHAR(10) NOT NULL, ->     kd_mk VARCHA
 
 ![gambar11](screenshot/ss11.png)
 
-### FINISH...
+## FINISH...
